@@ -4,7 +4,7 @@ async function getWeather() {
     if(!city) return ;
 
     try{
-        const response = await fetch(`http://localhost:3000/weather/${city}`);
+        const response = await fetch(`https://simple-weather-app-vtqb.onrender.com/weather/${city}`);
         const data = await response.json();
 
         if(!response.ok){ 
