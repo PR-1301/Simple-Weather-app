@@ -1,13 +1,12 @@
 import weatherRoutes from "../src/routes/weather.js"
-import path from "path"
 
 import express from "express"
 const app = express()
 
-//Load the frontend
+// This allows HTML, CSS, and JS files inside /public to be accessed in the browser
 app.use(express.static("public"));
 
-//call the function
+// Any request starting with /weather will be handled by weatherRoutes
 app.use("/weather", weatherRoutes);
 
 const PORT = 3000;
