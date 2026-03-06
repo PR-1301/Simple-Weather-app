@@ -1,15 +1,14 @@
-import { getWeather } from "../src/api/weatherapp.js"
+import weatherRoutes from "../src/routes/weather.js"
+import path from "path"
 
 import express from "express"
 const app = express()
 
+//Load the frontend
+app.use(express.static("public"));
 
-async function fetchWeather(city){
-    const data = await getWeather(city);
-    console.log(data.main.temp);
-    console.log(data.weather[0].main);
-    console.log(data.main.humidity);
-}
+//call the function
+app.use("/weather", weatherRoutes);
 
 const PORT = 3000;
 app.listen(PORT, ()=>{
